@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 import org.apache.commons.lang3.SerializationUtils;
 
 public class TestSerialize {
@@ -8,7 +10,7 @@ public class TestSerialize {
 
         IRequest iRequest2 = SerializationUtils.deserialize(data);
         if(iRequest2 instanceof LoginRequest) {
-            System.out.println("Is  LoginRequest : username" + ((LoginRequest) iRequest2).getUsername());
+            System.out.println("Is  netty.mutilrequesttype.LoginRequest : username" + ((LoginRequest) iRequest2).getUsername());
         }
 
 

@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 public class GetDataRequest implements IRequest{
     private String command;
 

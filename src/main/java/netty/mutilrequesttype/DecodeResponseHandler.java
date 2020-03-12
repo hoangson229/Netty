@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -5,14 +7,16 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import java.util.List;
 
-public class DecodeRequestHandler extends ByteToMessageDecoder{
+public class DecodeResponseHandler extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        System.out.println("DecodeRequestHandler ------> ");
+
 
         byte[] bytes = new byte[byteBuf.readableBytes()];
         byteBuf.readBytes(bytes);
-        IRequest iRequest = SerializationUtils.deserialize(bytes);
-        list.add(iRequest);
+        IResponse iResponse = SerializationUtils.deserialize(bytes);
+        list.add(iResponse);
+        System.out.println("netty.mutilrequesttype.DecodeResponseHandler ------> " + iResponse);
     }
 }
+

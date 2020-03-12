@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 public class LoginResponse implements IResponse {
     private String result;
 

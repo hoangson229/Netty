@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 public class LoginRequest implements IRequest {
     private String username;
     private String password;

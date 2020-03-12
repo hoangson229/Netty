@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 public class GetDataResponse implements IResponse {
 
     private String command;

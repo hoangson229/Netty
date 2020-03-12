@@ -1,3 +1,5 @@
+package netty.mutilrequesttype;
+
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -16,7 +18,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
       IRequest iRequest = (IRequest) msg;
       if(iRequest instanceof LoginRequest) {
           //Add logic check login
-          System.out.println("ServerHandler --> " + ((LoginRequest) iRequest).getUsername());
+          System.out.println("netty.mutilrequesttype.ServerHandler --> " + ((LoginRequest) iRequest).getUsername());
           LoginResponse loginResponse = new LoginResponse("Login Success");
           ChannelFuture future  = ctx.writeAndFlush(loginResponse);
           future.addListener(ChannelFutureListener.CLOSE);
@@ -25,7 +27,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
       if(iRequest instanceof GetDataRequest) {
           String command = ((GetDataRequest) iRequest).getCommand();
-          System.out.println("ServerHandler GetDataRequest --> " + command);
+          System.out.println("netty.mutilrequesttype.ServerHandler netty.mutilrequesttype.GetDataRequest --> " + command);
           GetDataResponse getDataResponse = new GetDataResponse(command, "resultData");
           ChannelFuture future  = ctx.writeAndFlush(getDataResponse);
           future.addListener(ChannelFutureListener.CLOSE);
